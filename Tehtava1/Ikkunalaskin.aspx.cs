@@ -39,7 +39,7 @@ public partial class Ikkunalaskin : System.Web.UI.Page {
             perimeter = (((WindowWidth * 2) + (WindowHeight * 2) + FrameWidth * 4) / 1000);
             lblResultFrameCircuit.Text = perimeter.ToString("0.##") + " m";
 
-            price = ((1 + (margin / 100)) * (area * windowsquareprice) + (perimeter * frameprice) + (workcost));
+            price = (1 + (margin / 100)) * ((area * windowsquareprice) + (perimeter * frameprice) + (workcost));
             lblResultPrice.Text = price.ToString("0.##") + " €";
 
             lblMessage.Text = "Laskenta onnistui!";

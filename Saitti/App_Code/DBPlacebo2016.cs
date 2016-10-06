@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
 
 namespace JAMK.ICT.Data
 {
@@ -44,5 +45,33 @@ namespace JAMK.ICT.Data
             throw;
         }
     }
+
+        public static DataTable GetArtists(string cs) {
+            try {
+
+                string sql = "SELECT " +
+                                            "esittaja.nimi as Artist, " +
+                                            "vuosi.vuosi as Year, " +
+                                            "maa.nimi as Country, " +
+                                            "esittaja.avain as ID " +
+                                "FROM esittaja " +
+                                "left join vuosi on esittaja.vuosi_avain = vuosi.avain " +
+                                "left join maa on esittaja.maa_avain = maa.avain " +
+                                "GROUP BY esittaja.nimi;";
+                using (MySqlConnection conn = new MySqlConnection(cs)) {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn)) {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
+                }
+
+            } catch (Exception ex) {
+
+                throw ex;
+            }
+        }
   }
 }

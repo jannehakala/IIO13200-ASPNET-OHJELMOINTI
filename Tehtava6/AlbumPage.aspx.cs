@@ -13,23 +13,23 @@ public partial class AlbumPage : System.Web.UI.Page {
         albumImage.Attributes["src"] = "images/" + album + ".jpg";
 
         XmlDocument xml = new XmlDocument();
-        xml.Load("D:\\H3298\\REPOS\\IIO13200-ASPNET-OHJELMOINTI\\Tehtava6\\App_Data\\LevykauppaX.xml");
+        xml.Load(Server.MapPath("~/App_Data/LevykauppaX.xml"));
 
-        string albumInfo = string.Format("/Record/genre[@name = 'Pop']/record[@ISBN = '{0}']", album);
+        string albumInfo = string.Format("/Records/genre[@name = 'Pop']/record[@ISBN = '{0}']", album);
         string songNode = string.Format("/Records/genre[@name = 'Pop']/record[@ISBN = '{0}']/song", album);
-
 
         XmlNodeList xnlist1 = xml.SelectNodes(albumInfo);
         XmlNodeList xnlist2 = xml.SelectNodes(songNode);
-        albumInfos.InnerHtml = "dsf";
+
         foreach (XmlNode xn in xnlist1) {
-            albumInfos.InnerHtml += xn.Attributes["Artist"].Value;
-            albumInfos.InnerHtml += " : " + xn.Attributes["Title"].Value;
+            albumInfos.InnerHtml += " " + xn.Attributes["Artist"].Value;
+            albumInfos.InnerHtml += " - " + xn.Attributes["Title"].Value + "<br><br> ";
+            albumInfos.InnerHtml += "ISBN: " + xn.Attributes["ISBN"].Value + "<br><br>";
+            albumInfos.InnerHtml += "Hinta: " + xn.Attributes["Price"].Value;
         }
 
         foreach (XmlNode xn in xnlist2) {
             albumSongs.InnerHtml += xn.Attributes["name"].Value +"<br>";
-        }
-        
+        } 
     }
 }

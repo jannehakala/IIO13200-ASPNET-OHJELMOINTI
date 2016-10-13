@@ -9,9 +9,4 @@ public partial class Levykauppax : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
       
     }
-
-    protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e) {
-   
-       
-    }
 }

@@ -6,7 +6,7 @@
 
     <asp:XmlDataSource ID="srcAlbums" runat="server" DataFile="~/App_Data/LevykauppaX.xml" XPath="//record"></asp:XmlDataSource>
     
-    <asp:Repeater ID="Repeater1" DataSourceID="srcAlbums" OnItemDataBound="Repeater1_ItemDataBound" runat="server">
+    <asp:Repeater ID="Repeater1" DataSourceID="srcAlbums" runat="server">
         <HeaderTemplate>
 
         </HeaderTemplate>

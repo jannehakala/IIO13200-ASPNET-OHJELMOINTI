@@ -1,21 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <palautteet>
-	<palaute>
-		<pvm>20131001</pvm>
-		<tekija>Juice Läskinen</tekija>
-		<opittu>paljon hyvää ja törkeän tärkeää</opittu>
-		<haluanoppia>tietoturvasta tsäbää</haluanoppia>
-		<hyvaa>demot</hyvaa>
-		<parannettavaa>enemmän omaa tekemistä</parannettavaa>
-		<muuta>GitHub ok</muuta>
-	</palaute>
-	<palaute>
-		<pvm>2013103</pvm>
-		<tekija>Esa Vesa</tekija>
-		<opittu>ASP.NET perusteet</opittu>
-		<haluanoppia>autentikointi ja hashaus</haluanoppia>
-		<hyvaa>hyvää</hyvaa>
-		<parannettavaa>parannettavaa</parannettavaa>
-		<muuta>blaah blaah</muuta>
-	</palaute>
+  <palaute>
+    <Pvm>20131001</Pvm>
+    <Nimi>Juice Läskinen</Nimi>
+    <Kurssi>.Net-ohjelmointi- IIO13200</Kurssi>
+    <Opittu>paljon hyvää ja törkeän tärkeää</Opittu>
+    <Haluan_oppia>tietoturvasta tsäbää</Haluan_oppia>
+    <Hyvää>demot</Hyvää>
+    <Parannettavaa>enemmän omaa tekemistä</Parannettavaa>
+    <Muuta>GitHub ok</Muuta>
+  </palaute>
+  <palaute>
+    <Pvm>2013103</Pvm>
+    <Nimi>Esa Vesa</Nimi>
+    <Kurssi>.Net-ohjelmointi- IIO13200</Kurssi>
+    <Opittu>ASP.NET perusteet</Opittu>
+    <Haluan_oppia>autentikointi ja hashaus</Haluan_oppia>
+    <Hyvää>hyvää</Hyvää>
+    <Parannettavaa>parannettavaa</Parannettavaa>
+    <Muuta>blaah blaah</Muuta>
+  </palaute>
+  <palaute>
+    <Pvm>27.10.2016</Pvm>
+    <Nimi>Janne Hakala</Nimi>
+    <Kurssi>.NET-ohjelmointi </Kurssi>
+    <Opittu>Kaikenlaista</Opittu>
+    <Haluan_oppia>Kaikenlaista</Haluan_oppia>
+    <Hyvää>Kaikki</Hyvää>
+    <Parannettavaa>Kaikki</Parannettavaa>
+    <Muuta>Kiva kurssi.</Muuta>
+  </palaute>
+  <palaute>
+    <Pvm>27.10.2016</Pvm>
+    <Nimi>Testi1</Nimi>
+    <Kurssi>Testi1</Kurssi>
+    <Opittu>Testi1</Opittu>
+    <Haluan_oppia>Testi1</Haluan_oppia>
+    <Hyvää>Testi1</Hyvää>
+    <Parannettavaa>Testi1</Parannettavaa>
+    <Muuta>Testi1</Muuta>
+  </palaute>
 </palautteet>

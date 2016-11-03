@@ -23,5 +23,5 @@ public partial class DemoxOyEntities : DbContext
         throw new UnintentionalCodeFirstException();
     }
 
-    public virtual DbSet<asiaka> asiakas { get; set; }
+    public virtual DbSet<asiakas> asiakas { get; set; }
 }

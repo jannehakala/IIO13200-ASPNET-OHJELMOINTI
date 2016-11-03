@@ -26,7 +26,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DemoxOyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="asiaka">
+        <EntityType Name="asiakas">
           <Key>
             <PropertyRef Name="astunnus" />
           </Key>
@@ -40,7 +40,7 @@
           <Property Name="asvuosi" Type="Int16" />
         </EntityType>
         <EntityContainer Name="DemoxOyEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="asiakas" EntityType="Self.asiaka" />
+          <EntitySet Name="asiakas" EntityType="Self.asiakas" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -49,7 +49,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DemoxOyModelStoreContainer" CdmEntityContainer="DemoxOyEntities">
           <EntitySetMapping Name="asiakas">
-            <EntityTypeMapping TypeName="DemoxOyModel.asiaka">
+            <EntityTypeMapping TypeName="DemoxOyModel.asiakas">
               <MappingFragment StoreEntitySet="asiakas">
                 <ScalarProperty Name="astunnus" ColumnName="astunnus" />
                 <ScalarProperty Name="asnimi" ColumnName="asnimi" />
@@ -76,7 +76,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 
-public partial class asiaka
+public partial class asiakas
 {
     public string astunnus { get; set; }
     public string asnimi { get; set; }

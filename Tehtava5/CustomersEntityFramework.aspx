@@ -11,10 +11,10 @@
         <div>
             <div>
                 <asp:Button ID="btnGetAllCustomers" Text="Hae kaikki asiakkaat" runat="server" OnClick="btnGetAllCustomers_Click" />
-                <asp:DropDownList ID="ddList" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddList" runat="server" AutoPostBack="true"></asp:DropDownList>
                 <asp:Button ID="btnGetCustomersFromCountry" Text="Hae asiakkaat valitusta maasta" runat="server" OnClick="btnGetCustomersFromCountry_Click" />
                 <asp:Button ID="btnGetCustomersBasedOnCountry" Text="Hae asiakkaat maittain" runat="server" OnClick="btnGetCustomersBasedOnCountry_Click" />
-                <a href="CreateNewCustomer">Luo uusi asiakas</a>
+                <a href="CreateNewCustomer.aspx">Luo uusi asiakas</a>
             </div>
             <asp:GridView ID="gvCustomers" runat="server" />
             <asp:Label ID="lblMessages" runat="server" />

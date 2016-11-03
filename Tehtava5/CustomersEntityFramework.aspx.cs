@@ -16,6 +16,18 @@ public partial class CustomersEntityFramework : System.Web.UI.Page {
 
     #region METHODS
 
+    protected void Init() {
+
+        //var countryCode = from c in ctx.asiakas
+        //                 orderby c.maa
+        //                 select c;
+        var countryCode = ctx.asiakas.Select(x => new { maa = x.maa}).OrderBy(x => x.maa).Distinct();
+        ddList.DataSource = countryCode.ToList();
+        ddList.DataTextField = "maa";
+        ddList.DataBind();
+        ddList.Items.Insert(0, string.Empty);
+    }
+
     protected void GetAllCustomers() {
         gvCustomers.DataSource = ctx.asiakas.ToList();
         gvCustomers.DataBind();
@@ -24,15 +36,19 @@ public partial class CustomersEntityFramework : System.Web.UI.Page {
         lblMessages.Text = string.Format("Haettu {0} asiakkaan tiedot", i);
     }
 
-    protected void Init() {
+    protected void GetCustomersFromCountry(string countryCode) {
+        var customer = from c in ctx.asiakas
+                       where c.maa == countryCode
+                       select c;
+        gvCustomers.DataSource = customer.ToList();
+        gvCustomers.DataBind();
+        int i = customer.Count();
 
-        //var countryCode = from c in ctx.asiakas
-        //                 orderby c.maa
-        //                 select c;
-        var countryCode = ctx.asiakas.OrderBy(x => x.maa);
-        ddList.DataSource = countryCode.ToList();
-        ddList.DataTextField = "maa";
-        ddList.DataBind();
+        lblMessages.Text = string.Format("Haettu {0} asiakkaan tiedot", i);
+    }
+
+    protected void GetCustomersBasedOnCountry() {
+
     }
 
     #endregion
@@ -43,18 +59,10 @@ public partial class CustomersEntityFramework : System.Web.UI.Page {
     }
 
     protected void btnGetCustomersFromCountry_Click(object sender, EventArgs e) {
-
-        var customer = from c in ctx.asiakas
-                       where c.maa == "GBR"
-                       select c;
-        gvCustomers.DataSource = customer.ToList();
-        gvCustomers.DataBind();
-        int i = ctx.asiakas.Count();
-
-        lblMessages.Text = string.Format("Haettu {0} asiakkaan tiedot", i);
+        GetCustomersFromCountry(ddList.Text);
     }
 
     protected void btnGetCustomersBasedOnCountry_Click(object sender, EventArgs e) {
-
+        GetCustomersBasedOnCountry();
     }
 }

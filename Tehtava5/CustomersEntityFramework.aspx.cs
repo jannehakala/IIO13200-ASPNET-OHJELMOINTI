@@ -21,7 +21,7 @@ public partial class CustomersEntityFramework : System.Web.UI.Page {
         //var countryCode = from c in ctx.asiakas
         //                 orderby c.maa
         //                 select c;
-        var countryCode = ctx.asiakas.Select(x => new { maa = x.maa}).OrderBy(x => x.maa).Distinct();
+        var countryCode = ctx.asiakas.Select(x => new { maa = x.maa }).OrderBy(x => x.maa).Distinct();
         ddList.DataSource = countryCode.ToList();
         ddList.DataTextField = "maa";
         ddList.DataBind();
@@ -48,6 +48,36 @@ public partial class CustomersEntityFramework : System.Web.UI.Page {
     }
 
     protected void GetCustomersBasedOnCountry() {
+        lblCustomersBasedOnCountry.Text = "";
+
+        try {
+
+            var countryCode = from x in ctx.asiakas
+                              select x.maa;
+            List<string> countryCodeList = countryCode.Distinct().ToList();
+            List<string> customersList = new List<string>();
+
+            foreach (var countrycode in countryCodeList) {
+                var customer = from x in ctx.asiakas
+                               where x.maa == countrycode
+                               select x.asnimi;
+                customersList = customer.ToList();
+                foreach (var customer2 in customersList) {
+                    var labelText = lblCustomersBasedOnCountry.Text;
+
+                    if (!labelText.Contains(countrycode)) {
+                        lblCustomersBasedOnCountry.Text += "<br><span style='color: green'>" + countrycode + 
+                            "</span><br><br><span style = 'color: blue';>" + customer2.ToString() + "</span><br>";
+                    } else {
+                        lblCustomersBasedOnCountry.Text += "<span style='color: blue';>" + customer2.ToString() + "</span><br>";
+                    }
+                }
+            }
+
+        } catch (Exception ex) {
+
+            lblMessages.Text = ex.Message;
+        }
 
     }
 

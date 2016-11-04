@@ -9,15 +9,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div>
+            <div style="float:left;">
                 <asp:Button ID="btnGetAllCustomers" Text="Hae kaikki asiakkaat" runat="server" OnClick="btnGetAllCustomers_Click" />
                 <asp:DropDownList ID="ddList" runat="server" AutoPostBack="true"></asp:DropDownList>
                 <asp:Button ID="btnGetCustomersFromCountry" Text="Hae asiakkaat valitusta maasta" runat="server" OnClick="btnGetCustomersFromCountry_Click" />
                 <asp:Button ID="btnGetCustomersBasedOnCountry" Text="Hae asiakkaat maittain" runat="server" OnClick="btnGetCustomersBasedOnCountry_Click" />
                 <a href="CreateNewCustomer.aspx">Luo uusi asiakas</a>
+                <asp:GridView ID="gvCustomers" runat="server" />
+                <asp:Label ID="lblMessages" runat="server" />
             </div>
-            <asp:GridView ID="gvCustomers" runat="server" />
-            <asp:Label ID="lblMessages" runat="server" />
+        </div>
+        <div style="float: left;margin-left:100px">
+            <asp:Label ID="lblCustomersBasedOnCountry" runat="server" />
         </div>
     </form>
 </body>
